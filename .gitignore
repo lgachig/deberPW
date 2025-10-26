@@ -1,13 +1,6 @@
-# Ignorar dependencias
 node_modules/
-
-# Ignorar archivos de build
 dist/
-out/
 build/
-
-# Ignorar archivos temporales del sistema
+out/
 .DS_Store
-
-# Ignorar entorno
 .env
