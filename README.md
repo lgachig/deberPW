@@ -1,10 +1,10 @@
-# Proyecto PWeb - Electron + React
+# PWeb Project - Electron + React
 
-Este proyecto es una aplicación de escritorio desarrollada con **Electron** y **React**.
+This project is a desktop application built with **Electron** and **React**.
 
 ---
 
-## Requisitos
+## Requirements
 
 - Node.js >= 16
 - npm
@@ -12,13 +12,18 @@ Este proyecto es una aplicación de escritorio desarrollada con **Electron** y *
 
 ---
 
-## 1️⃣ Instalar Node.js
+## Installing Node.js
 
-### Opción 1: Descargar desde la web
-1. Ir a [https://nodejs.org](https://nodejs.org)
-2. Descargar la versión LTS y seguir el instalador.
-3. Verificar la instalación:
+### Option 1: Download from the web
+1. Go to [https://nodejs.org](https://nodejs.org)
+2. Download the **LTS version** and follow the installer.
+3. Verify the installation:
 
 ```bash
 node -v
 npm -v
+
+## Run the application
+
+```bash
+npm run start
