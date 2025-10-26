@@ -1,0 +1,24 @@
+{
+  "name": "s",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/lgachig/deberPW#readme",
+  "bugs": {
+    "url": "https://github.com/lgachig/deberPW/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lgachig/deberPW.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "electron": "^38.4.0"
+  }
+}
