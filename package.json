@@ -1,7 +1,7 @@
 {
   "name": "s",
   "version": "1.0.0",
-  "description": "",
+  "description": "Aplicación de escritorio hecha con Electron",
   "homepage": "https://github.com/lgachig/deberPW#readme",
   "bugs": {
     "url": "https://github.com/lgachig/deberPW/issues"
@@ -16,9 +16,24 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
+    "dist": "electron-builder",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "build": {
+    "appId": "com.s.app",
+    "productName": "MiApp",
+    "mac": {
+      "category": "public.app-category.utilities",
+      "target": [
+        "dmg"
+      ]
+    },
+    "files": [
+      "**/*"
+    ]
+  },
   "devDependencies": {
-    "electron": "^38.4.0"
+    "electron": "^38.4.0",
+    "electron-builder": "^26.0.12"
   }
 }
