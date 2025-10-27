@@ -26,4 +26,8 @@ npm -v
 ## Run the application
 
 ```bash
-npm run start
+npm start
+
+## Ejecutable
+```bash
+npm run dist
