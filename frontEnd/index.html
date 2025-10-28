@@ -76,5 +76,27 @@
   </tbody>
 </table>
 </div>
+<div>
+
+  <button id="loadData" class="btn btn-success">
+    Cargar datos del backend
+  </button>
+
+
+<script>
+  const button = document.getElementById('loadData');
+
+  button.addEventListener('click', async () => {
+    try {
+      const response = await fetch('http://localhost:3004');
+      const data = await response.json();
+      console.log('Datos del backend:', data);
+    } catch (error) {
+      console.error('Error al traer datos del backend:', error);
+    }
+  });
+</script>
+
+</div>
 </body>
 </html>
