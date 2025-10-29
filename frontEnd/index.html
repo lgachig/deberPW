@@ -78,25 +78,46 @@
 </div>
 <div>
 
-  <button id="loadData" class="btn btn-success">
-    Cargar datos del backend
-  </button>
+  <div class="container py-4">
+    <h1 class="text-center mb-4">🐶 Razas de Perros</h1>
+    <div id="dataContainer" class="row g-3 justify-content-center">
+    </div>
+  </div>
 
+  <script>
+    async function cargarDatos() {
+      try {
+        const response = await fetch('http://localhost:3004');
+        const dataGet = await response.json();
 
-<script>
-  const button = document.getElementById('loadData');
+        const container = document.getElementById('dataContainer');
+        container.innerHTML = dataGet.data.map(item => {
+          const attr = item.attributes;
+          return `
+            <div class="col-md-4 col-lg-3">
+              <div class="card shadow-sm h-100">
+                <div class="card-body">
+                  <h5 class="card-title text-primary">${attr.name}</h5>
+                  <p class="card-text small text-muted">${attr.description || 'Sin descripción'}</p>
+                  <ul class="list-unstyled mb-0">
+                    <li>🐕 Peso Macho: ${attr.male_weight?.min || '?'}–${attr.male_weight?.max || '?'} kg</li>
+                    <li>🐩 Peso Hembra: ${attr.female_weight?.min || '?'}–${attr.female_weight?.max || '?'} kg</li>
+                    <li>🕓 Vida: ${attr.life?.min || '?'}–${attr.life?.max || '?'} años</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
 
-  button.addEventListener('click', async () => {
-    try {
-      const response = await fetch('http://localhost:3004');
-      const data = await response.json();
-      console.log('Datos del backend:', data);
-    } catch (error) {
-      console.error('Error al traer datos del backend:', error);
+      } catch (error) {
+        console.error('Error al traer datos del backend:', error);
+        document.getElementById('dataContainer').innerHTML =
+          `<p class="text-danger text-center">Error al cargar los datos.</p>`;
+      }
     }
-  });
-</script>
-
+    document.addEventListener('DOMContentLoaded', cargarDatos);
+  </script>
 </div>
 </body>
 </html>
