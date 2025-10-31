@@ -79,17 +79,21 @@
 <div>
 
   <div class="container py-4">
+    <form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
     <h1 class="text-center mb-4">🐶 Razas de Perros</h1>
     <div id="dataContainer" class="row g-3 justify-content-center">
     </div>
   </div>
 
   <script>
-    async function cargarDatos() {
+    async function buscarRaza(nombre) {
       try {
-        const response = await fetch('http://localhost:3004');
+        const response = await fetch(`http://localhost:3001/breed?name=${encodeURIComponent(nombre)}`);
         const dataGet = await response.json();
-
+  
         const container = document.getElementById('dataContainer');
         container.innerHTML = dataGet.data.map(item => {
           const attr = item.attributes;
@@ -109,14 +113,28 @@
             </div>
           `;
         }).join('');
-
+  
+        if (dataGet.data.length === 0) {
+          container.innerHTML = `<p class="text-center text-muted">No se encontraron resultados.</p>`;
+        }
+  
       } catch (error) {
-        console.error('Error al traer datos del backend:', error);
-        document.getElementById('dataContainer').innerHTML =
-          `<p class="text-danger text-center">Error al cargar los datos.</p>`;
+        console.error('Error al buscar datos del backend:', error);
       }
     }
-    document.addEventListener('DOMContentLoaded', cargarDatos);
+  
+    document.addEventListener('DOMContentLoaded', () => {
+      const input = document.querySelector('input[type="search"]');
+  
+      input.addEventListener('input', e => {
+        const nombre = e.target.value.trim();
+        if (nombre.length > 0) {
+          buscarRaza(nombre);
+        } else {
+          cargarDatos(); 
+        }
+      });
+    });
   </script>
 </div>
 </body>
