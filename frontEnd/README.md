@@ -1,33 +1,15 @@
-# PWeb Project - Electron + React
+# PWeb Project - Frontend
 
-This project is a desktop application built with **Electron** and **React**.
-
----
-
-## Requirements
-
-- Node.js >= 16
-- npm
-- Git
+This project is a web application frontend built with **HTML, CSS, and JavaScript**.
 
 ---
 
-## Installing Node.js
+## Description
 
-### Option 1: Download from the web
-1. Go to [https://nodejs.org](https://nodejs.org)
-2. Download the **LTS version** and follow the installer.
-3. Verify the installation:
+Frontend estático que se sirve desde el backend Express. No requiere instalación de dependencias para funcionar como aplicación web.
 
-```bash
-node -v
-npm -v
+## Archivos principales
 
-## Run the application
-
-```bash
-npm start
-
-## Ejecutable
-```bash
-npm run dist
+- `index.html` - Página principal
+- `script.js` - Lógica JavaScript
+- `rest.js` - Utilidades (si es necesario)
