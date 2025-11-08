@@ -1,6 +1,7 @@
 async function buscarRaza(nombre) {
   try {
-    const response = await fetch(`http://localhost:3001/breed?name=${encodeURIComponent(nombre)}`);
+    // Usar URL relativa para que funcione tanto en localhost como en EC2
+    const response = await fetch(`/breed?name=${encodeURIComponent(nombre)}`);
     const dataGet = await response.json();
 
     const container = document.getElementById('dataContainer');
