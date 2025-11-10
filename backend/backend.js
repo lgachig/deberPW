@@ -23,7 +23,7 @@ app.get('/breed', async (req, res) => {
   }
 });
 
-const PORT = 22;
+const PORT = 3000;
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`✅ Servidor backend escuchando en http://0.0.0.0:${PORT}`);
 });
