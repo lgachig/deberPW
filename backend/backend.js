@@ -23,6 +23,12 @@ app.get('/breed', async (req, res) => {
   }
 });
 
+app.get('/hola', async (req, res) => {
+  console.log('Hola, mundo!'); 
+}
+);
+
+
 const PORT = 3000;
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`✅ Servidor backend escuchando en http://0.0.0.0:${PORT}`);
